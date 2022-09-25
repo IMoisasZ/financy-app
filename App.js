@@ -1,9 +1,17 @@
 import 'react-native-reanimated'
-import Home from "./src/pages/Home";
+import Router from "./src/Router/index";
+import connectDb from './src/connection';
+
 export default function App() {
+  const connection = () => {
+    try {
+      connectDb()
+      console.log('Conexão OK');
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
-    <>
-      <Home />
-    </>
+      <Router />
   );
 }
